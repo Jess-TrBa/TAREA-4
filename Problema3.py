@@ -1,43 +1,76 @@
-#10 peces ocupan un arreglo 3-D de 5x5x5 de agua. Cada pez decide moverse a la
-#posición (i, j, k) dado por el arreglo 2-D que esta más adelante. Si múltiples peces terminan
-#ocupando la misma celda, el pez de mayor tamaño se come al más pequeño. Determina que peces
-#sobreviven.
+#Tu eres un científico de las relaciones, y has desarrollado un cuestionario 
+# que determina el puntaje de amor, es decir, un valor real entre cero y cien.
+# Tu teoría es que dos personas con puntajes de amor similares deberían de hacer 
+# un buen match. Dado los puntajes del amor para 10 personas distintas, crea 
+# un arreglo 2-D donde cada entrada (i, j) da la diferencia absoluta entre los 
+# puntajes del amor de la persona i y la persona j.
 
+# snippet de código para generar datos:
 import numpy as np
+generator = np.random.default_rng (1010)
+data = np.round(generator.uniform (low = 1, high = 100, size = 10))
+print(data)
 
-locs = np.array([
-    [0, 0, 0],
-    [1, 1, 2],
-    [0, 0, 0],
-    [2, 1, 3],
-    [5, 5, 4],
-    [5, 0, 0],
-    [5, 0, 0],
-    [0, 0, 0],
-    [2, 1, 3],
-    [1, 3, 1]
-])
+matriz_diferencias = np.abs(data[:, np.newaxis] - data) #aquí se genera una matriz donde cada valor de la línea 
+#superior se va restando a cada valor de la columna inicial. Esto lo hace por broadcasting. 
+print(matriz_diferencias)
 
-generator = np.random.default_rng(1010)
-weights = generator.normal(size=10)
-print(f"Los pesos son: {weights}")
+diferencias_persona_0 = matriz_diferencias[0, :] #aqui seleccionamos la linea correspondiente a la persona 0
+arr_sin_ceros0 = np.where(diferencias_persona_0 == 0, np.inf, diferencias_persona_0) #buscamos con np.where la diferencia mas pequeña ignorando al 0
+indice_menor0 = np.argmin(arr_sin_ceros0) #para sacar el indice de la persona con menos diferencias usamos np.argmin
+mejor_match_persona0 = indice_menor0
+print(f"El mejor match para la persona 0 es la persona {mejor_match_persona0}")
 
-tanque = {}
+diferencias_persona_1 = matriz_diferencias[1, :] 
+arr_sin_ceros1 = np.where(diferencias_persona_1 == 0, np.inf, diferencias_persona_1)
+indice_menor1 = np.argmin(arr_sin_ceros1)
+mejor_match_persona1 = indice_menor1
+print(f"El mejor match para la persona 1 es la persona {mejor_match_persona1}")
 
-# Mover cada pez a su nueva posición y registrar su peso
-for pez in range(len(locs)):
-    position = tuple(locs[pez])  # Convertir a tupla para usar como clave en el diccionario
-    if position in tanque:
-        # Si ya hay un pez en esta celda, comparar pesos
-        if weights[pez] > tanque[position][1]:
-            # El nuevo pez es más grande, reemplazar al existente
-            tanque[position] = (pez, weights[pez])
-    else:
-        # No hay pez en esta celda, agregar este
-        tanque[position] = (pez, weights[pez])
+diferencias_persona_2 = matriz_diferencias[2, :] 
+arr_sin_ceros2 = np.where(diferencias_persona_2 == 0, np.inf, diferencias_persona_2)
+indice_menor2 = np.argmin(arr_sin_ceros2)
+mejor_match_persona2 = indice_menor2
+print(f"El mejor match para la persona 2 es la persona {mejor_match_persona2}")
 
-# Obtener los IDs de los peces que sobreviven
-sobrevivientes = [pez[0] for pez in tanque.values()]
-sobrevivientes.sort()  # Ordenar los IDs para mejor presentación
+diferencias_persona_3 = matriz_diferencias[3, :] 
+arr_sin_ceros3 = np.where(diferencias_persona_3 == 0, np.inf, diferencias_persona_3)
+indice_menor3 = np.argmin(arr_sin_ceros3)
+mejor_match_persona3 = indice_menor3
+print(f"El mejor match para la persona 3 es la persona {mejor_match_persona3}")
 
-print("Peces que sobreviven:", sobrevivientes)
+diferencias_persona_4 = matriz_diferencias[4, :] 
+arr_sin_ceros4 = np.where(diferencias_persona_4 == 0, np.inf, diferencias_persona_4)
+indice_menor4 = np.argmin(arr_sin_ceros4)
+mejor_match_persona4 = indice_menor4
+print(f"El mejor match para la persona 4 es la persona {mejor_match_persona4}")
+
+diferencias_persona_5 = matriz_diferencias[5, :] 
+arr_sin_ceros5 = np.where(diferencias_persona_5 == 0, np.inf, diferencias_persona_5)
+indice_menor5 = np.argmin(arr_sin_ceros5)
+mejor_match_persona5 = indice_menor5
+print(f"El mejor match para la persona 5 es la persona {mejor_match_persona5}")
+
+diferencias_persona_6 = matriz_diferencias[6, :] 
+arr_sin_ceros6 = np.where(diferencias_persona_6 == 0, np.inf, diferencias_persona_6)
+indice_menor6 = np.argmin(arr_sin_ceros6)
+mejor_match_persona6 = indice_menor6
+print(f"El mejor match para la persona 6 es la persona {mejor_match_persona6}")
+
+diferencias_persona_7 = matriz_diferencias[7, :] 
+arr_sin_ceros7 = np.where(diferencias_persona_7 == 0, np.inf, diferencias_persona_7)
+indice_menor7 = np.argmin(arr_sin_ceros7)
+mejor_match_persona7 = indice_menor7
+print(f"El mejor match para la persona 7 es la persona {mejor_match_persona7}")
+
+diferencias_persona_8 = matriz_diferencias[8, :] 
+arr_sin_ceros8 = np.where(diferencias_persona_8 == 0, np.inf, diferencias_persona_8)
+indice_menor8 = np.argmin(arr_sin_ceros8)
+mejor_match_persona8 = indice_menor8
+print(f"El mejor match para la persona 8 es la persona {mejor_match_persona8}")
+
+diferencias_persona_9 = matriz_diferencias[9, :] 
+arr_sin_ceros9 = np.where(diferencias_persona_9 == 0, np.inf, diferencias_persona_9)
+indice_menor9 = np.argmin(arr_sin_ceros9)
+mejor_match_persona9 = indice_menor9
+print(f"El mejor match para la persona 9 es la persona {mejor_match_persona9}")
