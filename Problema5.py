@@ -37,8 +37,8 @@ for pez in range(len(locs)):
         # Si no hay pez en esta celda, agregamos entonces a este nuevo pez:
         tanque[position] = (pez, weights[pez])
 
-# Obtener los numeros de los peces que sobrevivieron:
+# Obtenemos los numeros de los peces que sobrevivieron:
 sobrevivientes = [pez[0] for pez in tanque.values()]
-sobrevivientes.sort()  # Ordenar los numeros para visualizarlo mejor
+sobrevivientes.sort()  # Ordenamos los numeros para visualizarlo mejor
 
 print("Peces que sobreviven:", sobrevivientes)
