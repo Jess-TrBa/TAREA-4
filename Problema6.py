@@ -24,13 +24,17 @@ print(arreglo)
 
 # Definimos los números primos menores que 10
 primos = [k for k in range(10) if es_primo(k)]  # [2, 3, 5, 7]
-
+test = ()
 # Establecemos 1 en las posiciones que cumplen las condiciones
 for i in range(10):
     for j in range(10):
         for k in range(10):
             if i % 2 == 1 and j % 2 == 0 and k in primos: # i % 2 == 1 es impar si el residuo es 1,  j % 2 == 0 es par si el residuo es 0
+                test.append((i,j,k))
                 arreglo[i, j, k] = 1 #cambiar las posiciones dentro del arreglo de ceros
+
+for t en test:
+print(t, t elementos)
 
 # Comprobamos:
 print("Posición (1, 0, 2):", arreglo[1, 0, 2]) 
